@@ -21,8 +21,8 @@ export default class Contact {
     `;
   }
 
-  async load() {
-    await render(this.template(), this.contactsEl);
+  load() {
+    render(this.template(), this.contactsEl);
     new Header('#header1').load();
     new Button('#button1').load();
   }
