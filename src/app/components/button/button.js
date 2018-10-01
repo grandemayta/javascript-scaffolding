@@ -7,7 +7,7 @@ export default class Header {
     this.router = new Router();
     this.btnEl = document.querySelector(`${selector}`);
     this.href = this.btnEl.getAttribute('data-href');
-    this.text = this.btnEl.innerHTML;
+    this.text = this.btnEl.innerText;
   }
 
   template() {
