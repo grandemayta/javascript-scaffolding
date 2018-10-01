@@ -4,25 +4,21 @@ import './button.scss';
 
 export default class Header {
   constructor(selector) {
-    this.btnEl = document.querySelector(`app-button${selector}`);
-    this.text = this.btnEl.getAttribute('data-text');
+    this.router = new Router();
+    this.btnEl = document.querySelector(`${selector}`);
     this.href = this.btnEl.getAttribute('data-href');
-  }
-
-  click() {
-    this.btnEl.addEventListener('click', () => {
-      new Router().go(this.href);
-    });
+    this.text = this.btnEl.innerHTML;
   }
 
   template() {
     return html`
-      <button>${this.text}</button>
+      <button @click=${() => this.router.go(this.href)}>
+        ${this.text}
+      </button>
     `;
   }
 
   load() {
     render(this.template(), this.btnEl);
-    this.click();
   }
 }

@@ -14,7 +14,9 @@ export default class Home {
       <div>
         <app-header id="header1" data-title=${this.title}></app-header>
         <img src=${jsImage}/>
-        <app-button id="button1" data-text="Contacts" data-href="/contacts"></app-button>
+        <app-button id="button1" data-href="/contacts">
+          Contacts
+        </app-button>
       </div>
     `;
   }
