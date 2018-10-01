@@ -8,7 +8,7 @@ const dist = path.resolve(__dirname, './dist');
 
 module.exports = {
   entry: {
-    vendor: ['@babel/polyfill', 'navigo'],
+    vendor: ['@babel/polyfill', 'navigo', 'lit-html'],
     app: `${src}/app/core/app.js`
   },
   optimization: {
@@ -39,23 +39,18 @@ module.exports = {
         test: /\.(jpg|png|gif|eot|woff|woff2|ttf|svg)$/,
         loader: 'file-loader',
         exclude: /node_modules/
-      },
-      {
-        test: /\.pug$/,
-        loader: 'pug-loader',
-        exclude: /node_modules/
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin([dist]),
     new HtmlWebpackPlugin({
-      template: `${src}/app/index.pug`,
+      template: `${src}/app/index.html`,
       filename: 'index.html'
     })
   ],
   resolve: {
-    extensions: ['.js', '.scss', '.pug'],
+    extensions: ['.js', '.scss'],
     modules: ['node_modules', 'src']
   }
 };

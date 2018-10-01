@@ -1,12 +1,21 @@
-import template from './header.pug';
+import { html, render } from 'lit-html';
 import './header.scss';
 
 export default class Header {
-  constructor(title) {
-    this.title = title;
+  constructor(selector) {
+    this.headerEl = document.querySelector(selector);
+    this.title = this.headerEl.getAttribute('data-title');
+  }
+
+  template() {
+    return html`
+      <header>
+        <h4>${this.title}</h4>
+      </header>
+    `;
   }
 
   load() {
-    document.querySelector('app-header').innerHTML = template({ title: this.title });
+    render(this.template(), this.headerEl);
   }
 }
