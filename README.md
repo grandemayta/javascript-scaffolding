@@ -42,7 +42,6 @@ $ npm run prod
 - [Eslint](https://eslint.org/)
 
 ## Todo
-- [ ] Replace pug with [Lit-html](https://github.com/Polymer/lit-html)
 - [ ] Setup Unit Testing
 - [ ] Setup E2E Testing
 
